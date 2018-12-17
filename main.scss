@@ -1,0 +1,214 @@
+html,body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  // overflow-x: hidden; 
+}
+
+html {
+  overflow: visible;
+}
+body {
+  overflow-x: hidden;
+  font-family: 'Cabin', sans-serif;
+}
+
+.section {
+  padding: 50px;
+  background: #ff7a66;
+  font-size: 38px;
+}
+
+.section-title {
+  color: #333;
+  font-family: 'Patua One', cursive;
+}
+
+.section-text {
+  color: white;
+  font-family: 'Cabin', sans-serif;
+  line-height: 1.5em;
+}
+
+.name {
+  padding-top: 5px !important;
+  padding-bottom: 0 !important;
+  font-size: 36px!important;
+}
+#navbar {
+  font-family: 'Patrick Hand', cursive;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  border-bottom: 1px solid black;
+}
+
+#nav-list {
+  display: flex;
+}
+
+#nav-list.responsive {
+  top: 54px;
+  background: #fff;
+  width: 100%;
+  text-align: right;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .7s, top .3s;
+  z-index: 100;
+}
+
+.icon {
+  display: none;
+}
+
+#intro {
+  background: #8010e0;
+  .container {
+
+  }
+}
+
+#contact-desc {
+  // background: #61ff86;
+  background: #5cd183;
+}
+
+#contact {
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: rgba(34,34,34,0.85);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  transition: opacity .5s;
+  z-index: 5;
+  color: white;
+  cursor: pointer;
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+
+.wrap {
+  display: flex;
+  margin: 0 auto;
+  // background: #ccc;
+  justify-content: space-around;
+  a {
+    padding: 20px 10px;
+    font-size: 1.25em;
+    text-decoration: none;
+    color: black;
+  } 
+  a:not(.name):hover {
+    text-decoration: underline;
+  }
+}
+
+.wrap a:first-child {
+  margin-right: auto;
+}
+
+.potrait{
+  max-width: 100%;
+  padding: 50px;
+}
+
+.contact-bitmojis {
+  padding: 50px;
+  max-width: 300px;
+  padding-bottom: 0;
+}
+
+.contact-bitmoji-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: rgb(9, 53, 122);
+  font-family: "Cabin", sans-serif;
+  font-weight: bold;
+}
+
+.contact-caption {
+  margin-top: 5px;
+}
+
+#work .container-fluid {
+  max-width: 1140px;
+}
+
+#body-overlay {
+  position: fixed;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+#body-overlay.responsive {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.7;
+  transition: opacity 0.4s;
+  top: 0;
+}
+
+.overlay {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding: 50px 0;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 531px) {
+  .section {
+    font-size: 24px;
+  }
+  
+  #nav-list {
+    // visibility: hidden;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    flex-direction: column;
+    position: absolute;
+    top: -500px;
+    transition: opacity .2s, top .5s;
+    opacity: 0;
+    background: #fff;
+    width: 100%;
+
+    a.nav-link {
+      font-weight: 100;
+      color: #333;
+      margin: 0 auto;
+      padding: 10px;
+    }
+  }
+  .icon {
+    display: block;
+  }
+}

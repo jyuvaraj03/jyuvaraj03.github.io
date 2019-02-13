@@ -25,6 +25,9 @@ body {
   font-family: 'Patua One', cursive;
 }
 
+.bold {
+  font-weight: bold;
+}
 .section-text {
   color: white;
   font-family: 'Cabin', sans-serif;
@@ -124,11 +127,22 @@ body {
   margin-right: auto;
 }
 
+.potrait-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .potrait{
   max-width: 100%;
   padding: 50px;
 }
 
+#normal-photo {
+  height: 450px;
+  width: 450px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .contact-bitmojis {
   padding: 50px;
   max-width: 300px;

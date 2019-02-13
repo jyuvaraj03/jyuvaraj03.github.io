@@ -20,6 +20,9 @@ body {
   color: #333;
   font-family: 'Patua One', cursive; }
 
+.bold {
+  font-weight: bold; }
+
 .section-text {
   color: white;
   font-family: 'Cabin', sans-serif;
@@ -100,9 +103,20 @@ body {
 .wrap a:first-child {
   margin-right: auto; }
 
+.potrait-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 .potrait {
   max-width: 100%;
   padding: 50px; }
+
+#normal-photo {
+  height: 450px;
+  width: 450px;
+  object-fit: cover;
+  border-radius: 50%; }
 
 .contact-bitmojis {
   padding: 50px;

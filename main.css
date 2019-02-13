@@ -118,6 +118,13 @@ body {
   object-fit: cover;
   border-radius: 100px; }
 
+.x-title {
+  margin-bottom: 5px; }
+
+.x-description {
+  margin-left: 10px;
+  margin-top: 5px; }
+
 .contact-bitmojis {
   padding: 50px;
   max-width: 300px;

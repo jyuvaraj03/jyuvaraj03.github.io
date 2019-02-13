@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css?family=Chango|Chewy" rel="stylesheet">
+</head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <div id="title" class="text-center"><h1>WEATHER APP</h1></div>
+    </div>
+    <div id="content">
+      <div id="info" class="center-block text-center">
+        <div id="location" class="center-block"></div>
+        <div id="temp">
+          <div><a id="tempC" href="#"></a></div>
+          <div><a id="tempF" href="#"></a></div>
+        </div>
+        <div id="desc"></div>
+      </div>
+    </div>
+    <div id="footer">
+      <footer>
+        <p>Created by Yuvaraj Jayavel. <a href='#' id="imgsrc" target="_blank">Image Source</a></p>
+      </footer>
+    </div>
+  </div>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      background-repeat: no-repeat;
+      back
+    }
+
+    #title {
+      font-family: 'Chango', cursive;
+      text-shadow: 3px 3px 4px black;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+    #info {
+      font-size: 35px;
+      font-family: 'Chewy', cursive;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    a, a:hover, a:visited{
+      color: white;
+      text-decoration: underline !important;
+    }
+
+
+    footer {
+      font-size: 17px;
+      text-shadow: 2px 2px 2px black;
+      bottom: 0;
+      position: fixed;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    var tempC, tempF;
+
+    function putHTML(json) {
+      var wCity = json.name;
+      var wCountry = json.sys.country;
+      var wDesc = json.weather[0].main;
+      var wTemp = json.main.temp;
+      var wIcon = json.weather[0].icon;
+      
+      //flickr api url
+      var getURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=928086d8f294747699c862d05479c14f&accuracy=3&format=json&nojsoncallback=1&lat=' + json.coord.lat + '&lon=' + json.coord.lon + '&text=' + wDesc; 
+      console.log(getURL);
+      //getting image details from flickr
+      $.getJSON(getURL, function(imageData) {
+        var rNo = Math.floor(Math.random() * imageData.photos.photo.length); //random number -- to get a random image
+        var photo = imageData.photos.photo[rNo];
+        console.log(photo);
+        var photoURL = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_b.jpg";
+        var imgsrcURL = "https://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+        $("#imgsrc").attr("href", imgsrcURL);
+        //putting the background-image
+        $("body").css({"background-image": "url(" + photoURL + ")",
+                       "background-size": "cover",
+                       "background-attachment": "fixed"});
+      });
+      
+      //putting HTML
+      $("#location").html(wCity + ", " + wCountry);
+      $("#desc").html(wDesc + "<img src=" + wIcon + "onload='check()'>");
+      tempC = wTemp + " °C";
+      tempF = Math.round(wTemp*1.8 + 32) + " °F";
+      $("#tempC").html(tempC);
+      $("#tempF").html(tempF);
+      $("#tempF").hide();
+    }
+
+    function getWeather() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var lat = position.coords.latitude;
+          var lon = position.coords.longitude;
+          console.log(lat, lon);
+          var url = "https://fcc-weather-api.glitch.me/api/current?" + "lat=" + lat + "&lon=" + lon;
+          $.getJSON(url, putHTML);
+        });
+      }
+    }
+
+    $(document).ready(function(){
+      getWeather();
+      $("a").click(function() {
+        $("#tempC, #tempF").toggle();
+      });
+    });
+
+
+  </script>
+</body>
+</html>

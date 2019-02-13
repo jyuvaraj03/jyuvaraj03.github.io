@@ -97,7 +97,7 @@ body {
   opacity: 0;
   justify-content: center;
   align-items: center;
-  transition: opacity .5s;
+  transition: opacity 1s;
   z-index: 5;
   color: white;
   cursor: pointer;
@@ -179,9 +179,19 @@ body {
 .contact-caption {
   margin-top: 5px;
 }
-
+#work {
+  padding: 50px;
+}
 #work .container-fluid {
   max-width: 1140px;
+}
+
+.sub-title {
+  font-family: 'Patua One', cursive;
+  font-size: 2em;
+}
+#others {
+  margin-top: 50px;
 }
 
 #footer {

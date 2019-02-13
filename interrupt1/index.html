@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<title>Interrupt '18 | Home</title>
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+		<link href="index-css.css" rel="stylesheet">
+		<link rel="icon" href="img/favicon.jpeg">
+		<link rel="apple-touch-icon" href="img/favicon.jpeg">
+
+		<meta charset="UTF-8">
+  		<meta name="description" content="Interrupt 2018 Official Website">
+  		<meta name="keywords" content="interrupt,2018,2k18,svce,symposium,event,tech">
+  		<meta name="author" content="SVCE Interrupt Web Team 2018">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<pre><span id="title"> <!-- The title itself. -->
+  _____       _                             _     ___  _   __  ___   
+ |_   _|     | |                           | |   |__ \| | /_ |/ _ \  
+   | |  _ __ | |_ ___ _ __ _ __ _   _ _ __ | |_     ) | | _| | (_) | 
+   | | | '_ \| __/ _ \ '__| '__| | | | '_ \| __|   / /| |/ / |> _ <  
+  _| |_| | | | ||  __/ |  | |  | |_| | |_) | |_   / /_|   <| | (_) | 
+ |_____|_| |_|\__\___|_|  |_|   \__,_| .__/ \__| |____|_|\_\_|\___/  
+                                     | |                             
+                                     |_|                             
+		</span></pre>
+		<p class="intro-text">Welcome to Interrupt 2018!</p>
+		
+		<!-- The typing effect is done here -->
+		<p class="intro-text intro-body" id="intro-about">
+			Interrupt is a National-Level Technical Symposium conducted by the students of the Computer Science department of Sri Venkateswara College of Engineering. It is a place where engineers showcase their talent and ideas in a plethora of events across various domains of the computer world. Now in its 27<sup>th</sup> year, Interrupt is back and it's bigger and better than ever! Check out the Command Prompt for information on events and registration!<br><br>
+			<span id="line-one"></span>
+			<br />
+			<span id="line-two"></span>
+			<br />
+			<span id="line-three"></span><span style='width:5%;' id='cursor-blink'>|</span>
+			<br />
+		</p> 
+
+		<a href="cmd/loading.html" class="home-links">Go To Interrupt Command Prompt &crarr;</a> <!-- The buttons on the home page. -->
+		<a href="http://interrupt2k18.in/sponsors/" class="home-links green">Our Sponsors &crarr;</a>
+		<a href="http://interrupt2k18.in/login/" class="home-links red">Login &crarr;</a>
+		<!--<a href="http://interrupt2k18.in/team/" class="home-links green">Organising Team 2018 &crarr;</a>-->
+
+	</body>
+
+	<script>
+		var colorNum=1;
+		window.setInterval(colorChange, 1000); //This function calls the colorChange() function every 1 second.
+
+		function colorChange(){
+			if(colorNum==1){
+				document.getElementById("title").style.color="#FFB74D";
+				colorNum=2;
+			}
+			else if(colorNum==2){
+				document.getElementById("title").style.color="#81C784";
+				colorNum=3;
+			}
+			else if(colorNum==3){
+				document.getElementById("title").style.color="#81D4FA";
+				colorNum=4;
+			}
+			else if(colorNum==4){
+				document.getElementById("title").style.color="#CE93D8";
+				colorNum=5;
+			}
+			else if(colorNum==5){
+				document.getElementById("title").style.color="#yellow";
+				colorNum=6;
+			}
+			else if(colorNum==6){
+				document.getElementById("title").style.color="#90CAF9";
+				colorNum=1;
+			}
+		} //This function is used to change the color of the interrupt title every time it is called.
+				
+		//The following functions and variables are for the 'typing' effect that is found on the main page.
+		var typeNum=0;
+		var typeChange=window.setInterval(typewrite, 10);
+		
+		var typeText="Venue: Sri Venkateswara College of Engineering ["+
+			"Date: 29# September, 2018 ["+
+			"Time: 8:30 AM - 3:30PM ";
+			
+		var typeTextLen=typeText.length;
+		var superscriptNum=0;
+		var lineOneComplete = false, lineTwoComplete = false, lineThreeComplete = false;
+		
+		function typewrite(){
+			if(typeNum!=(typeTextLen-1)){
+				if(lineOneComplete == false){
+					if(typeText[typeNum]=='['){
+						lineOneComplete = true;
+					}
+					else 
+						document.getElementById("line-one").innerHTML+=typeText[typeNum];
+				}
+				else if(lineTwoComplete == false){
+					if(typeText[typeNum]=='['){
+						lineTwoComplete = true;
+					}
+					else if(typeText[typeNum]=='#'){
+						document.getElementById("line-two").innerHTML+="<sup>th</sup>";
+						superscriptNum+=1;
+					}
+					else {
+						document.getElementById("line-two").innerHTML+=typeText[typeNum];
+					}
+				}
+				else if(lineThreeComplete == false){
+					if(typeText[typeNum]=='['){
+						lineThreeComplete = true;
+					}
+					else 
+						document.getElementById("line-three").innerHTML+=typeText[typeNum];
+				}
+				typeNum+=1;
+			}
+			else{
+				clearInterval(typeChange);
+				window.setInterval(blink,500);				
+			}
+		} //Everytime the function is called, it appends a character to the respective line (<span> tag) in the <p> tag until the end of the string has been reached.
+		
+		var blinkNum=0;
+		function blink(){
+			if(blinkNum==0){
+				document.getElementById("cursor-blink").style.backgroundColor="white";
+				document.getElementById("cursor-blink").style.color="white";
+				blinkNum=1;
+			}
+			else{
+				document.getElementById("cursor-blink").style.backgroundColor="black";
+				document.getElementById("cursor-blink").style.color="black";
+				blinkNum=0;
+			}
+		} //This function changed the background of the <span> character from black to white, making the 'cursor' blink.
+	</script>
+
+</html>

@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>Interrupt '18 | Sponsors</title>
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet"> 
+		<link href="css/index-css.css" rel="stylesheet">
+		<link rel="icon" href="../img/favicon.jpeg">
+		<link rel="apple-touch-icon" href="img/favicon.jpeg">
+
+		<meta charset="UTF-8">
+                <meta name="description" content="Interrupt 2018 Official Website">
+                <meta name="keywords" content="interrupt,2018,2k18,svce,symposium,event,tech">
+                <meta name="author" content="SVCE Interrupt Web Team 2018">                
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<body>
+		
+		<p id="sponsor-text"></p>
+		
+		<!-- The logos are arranged in rows, three at a time. -->
+		
+		<a href="http://www.careerlauncherchennai.com" target="_blank" class="sponsor-link"><img src="img/cl.jpg" class="sponsor-logo careerlauncher"></a>
+		<a href="http://www.delium.co" target="_blank" class="sponsor-link"><img src="img/del.jpg" class="sponsor-logo"></a>
+		<a href="https://deetaanalytics.com/" target="_blank" class="sponsor-link"><img src="img/dee.jpg" class="sponsor-logo"></a>
+		<!--<a href="#" class="sponsor-link"><img src="img/alu.jpg" class="sponsor-logo alumni"></a>-->
+
+		
+		<a href="http://interrupt2k18.in/team/" class="home-links white" style="margin-top: 8%;">Organising Team 2018 &crarr;</a>
+                <a href="http://interrupt2k18.in/" class="home-links second-link">Go Back To Home &crarr;</a>
+		<a href="http://interrupt2k18.in/cmd/" class="home-links red">Go To Interrupt Command Prompt &crarr;</a>
+		
+	</body>
+	
+	<script>
+		var typeChange=window.setInterval(typewrite, 15); //This function calls 'typewrite' that appends a character to the <p> tag, creating a typing effect
+
+		var typeNum=0;
+		var typeText="We are proud to share with you all the sponsors for this year's Interrupt! We thank these organisation for their trust and support! Click on the logos to know more about each company!  ";
+		var typeTextLen=typeText.length;
+		
+		function typewrite(){
+			if(typeNum!=(typeTextLen-1)){
+				document.getElementById("sponsor-text").innerHTML+=typeText[typeNum];
+				typeNum+=1;
+			}
+			else{
+				clearInterval(typeChange);
+				document.getElementById("sponsor-text").innerHTML+="<span style='width:5%;' id='cursor-blink'>|</span>";
+				window.setInterval(blink,500);
+			}
+		} //Everytime the function is called, it appends a character to the <p> tag until the end of the string has been reached.
+		
+		var blinkNum=0;
+		function blink(){
+			if(blinkNum==0){
+				document.getElementById("cursor-blink").style.backgroundColor="white";
+				document.getElementById("cursor-blink").style.color="white";
+				blinkNum=1;
+			}
+			else{
+				document.getElementById("cursor-blink").style.backgroundColor="black";
+				document.getElementById("cursor-blink").style.color="black";
+				blinkNum=0;
+			}
+		} //This function changed the background of the <span> character from black to white, making the 'cursor' blink.
+	</script>
+	
+</html>

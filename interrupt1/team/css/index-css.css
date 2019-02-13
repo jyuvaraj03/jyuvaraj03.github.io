@@ -1,0 +1,149 @@
+body, html{
+	background-color: black;
+	font-family: 'Share Tech Mono', monospace;
+	color: white;
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	width: 95%;
+	margin: 2.5% 2.4%;
+	padding-bottom: 5%;
+	border: 1px dashed white;
+}
+
+#title{
+	width: 100%;
+	display: block;
+	margin-top: 3%;
+	font-size: 125%;
+	text-align: center;
+	white-space: pre;
+	word-wrap: normal;
+	color: red;
+}
+
+.intro-text{
+	width: 80%;
+	margin: 0% 0% 2% 10%;
+	font-size: 125%;
+	color: yellow;
+	text-align: center;
+}
+.intro-details{
+	margin-bottom: 0.25%;
+}
+.home-links{
+	text-decoration: none;
+	color: #29B6F6;
+	width: 30%;
+	margin: 0 auto;
+	margin-top: 3%;
+	display: block;
+	text-align: center;
+	border: 1px dashed #29B6F6;
+	padding: 1% 0%;
+	font-size: 120%;
+}
+.home-links:hover{
+	color: yellow;
+	border: 1px dashed yellow;
+}
+.blue1{
+	margin-top: 4%;
+	color: #29B6F6;
+	border: 1px dashed #29B6F6;
+}
+.blue2{
+	margin-top: 1%;
+	color: #29B6F6;
+	border: 1px dashed #29B6F6;
+}
+
+.image-div{
+	width: 100%;
+	text-align: center;
+	display: block;
+}
+.image-div a{
+	text-decoration: none;
+}
+
+.developer-div{
+	width: 22%;
+	display: inline-block;
+}
+.developer-img{
+	width: 100%;
+	cursor: pointer;
+}
+.developer-txt{
+	width: 100%;
+	font-size: 118%;
+	display: inline-block;
+	text-align: center;
+}
+.bottom-text{
+	margin-top: 6%;
+	width: 30%;
+	margin-left: 35%;
+}
+.middle-text{
+	margin-top: 2.5%;
+	margin-bottom: 3.5%;
+}
+.git{
+	margin-top: 0%;
+	color: white;
+	border: 1px dashed white;
+}
+
+/* This is for the mobile responsive */
+
+@media only screen and (max-width: 1000px) {
+	
+	#title{
+		color: orange;
+		font-size: 70%;
+	}
+	.intro-text{
+		width: 80%;
+		margin-left: 10%;
+		font-size: 100%;
+	}
+	.developer-div{
+		width: 70%;
+		display: block;
+		margin-top: 4%;
+		margin-left: 15%;
+	}
+	.developer-txt{
+		font-size: 100%;
+	}
+
+	.home-links{
+		width: 90%;
+		margin-left: 5%;
+		padding-top: 5%;
+		padding-bottom: 5%;
+		font-size: 100%;
+	}
+
+	.blue1{ 
+        	margin-top: 14%;
+        	color: #29B6F6;
+        	border: 1px dashed #29B6F6;
+	}
+	.blue2{ 
+        	margin-top: 5%;
+        	color: #29B6F6;
+        	border: 1px dashed #29B6F6;
+	}
+	.git{
+		margin-top: 5%;
+		border: 1px dashed white;
+		color: white;
+	}
+
+}

@@ -1,0 +1,137 @@
+body, html{
+	background-color: black;
+	font-family: 'Share Tech Mono', monospace;
+	color: white;
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	width: 95%;
+	margin: 2.5% 2.4%;
+	padding-bottom: 5%;
+	border: 1px dashed white;
+	text-align: center;
+}
+
+#title{
+	width: 100%;
+	display: block;
+	margin-top: 3%;
+	font-size: 125%;
+	text-align: center;
+	white-space: pre;
+	word-wrap: normal;
+	color: white;
+}
+
+.intro-text{
+	width: 100%;
+	margin: 0% 0% 2% 0%;
+	font-size: 125%;
+	text-align: center;
+	color: white;
+}
+.intro-body{
+	width: 80%;
+	margin:0 auto 3% auto;
+	color: white;
+}
+.intro-details{
+	margin-bottom: 0.25%;
+	color: white;
+}
+.home-links{
+	text-decoration: none;
+	color: #29B6F6;
+	width: 30%;
+	margin: 3% auto 0% auto;
+	display: block;
+	text-align: center;
+	border: 1px dashed #29B6F6;
+	padding: 1% 0%;
+	font-size: 120%;
+}
+.home-links:hover{
+	color: yellow;
+	border: 1px dashed yellow;
+}
+.red{
+	margin-top: 1%;
+	color: red;
+	border: 1px dashed red;
+}
+.green{
+	margin-top: 1%;
+	color: #04bf00;
+	border: 1px dashed #04bf00;
+}
+.orange{
+	margin-top: 1%;
+	color: #FFFF00;
+	border: 1px dashed #FFFF00;
+}
+
+#cursor-blink {
+	background-color: black;
+	color: black;
+}
+
+/* This is for the mobile responsive */
+
+@media only screen and (max-width: 1000px) {
+
+	html{
+		padding-left: 2.4%;
+	}
+
+	body{	
+		width: 95%;
+		border: 1px dashed white;
+		margin: 2.5% 0%;
+		padding-bottom: 8%;
+	}
+
+	#title{
+		font-size: 8px;
+		margin: 7% 0%;
+	}
+
+	.intro-text{
+		width: 100%;
+		margin: 3% 0% 2% 0%;
+		font-size: 100%;
+		text-align: center;
+	}
+	.intro-body{
+		width: 95%;
+		margin: 5% auto 3% auto;
+	}
+	.intro-details{
+		margin-bottom: 0.25%;
+	}
+	.home-links{
+		display: block;
+		width: 90%;
+		margin-top: 8%;
+		border: 1px dashed #29B6F6;
+		padding: 4% 0%;
+		font-size: 100%;
+	}
+	.home-links:hover{
+		border: 1px dashed yellow;
+	}
+	.red{
+		margin-top: 3%;
+		border: 1px dashed red;
+	}
+	.yellow{
+		margin-top: 3%;
+		border: 2px dashed yellow;
+	}
+	.green{
+		margin-top: 3%;
+		color: #04b400;
+		border: 1px dashed #04b400;
+	}
+}

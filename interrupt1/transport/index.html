@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Interrupt '18 | Transport</title>
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+		<link href="css/index-css.css" rel="stylesheet">
+		<link rel="icon" href="img/favicon.jpeg">
+		<link rel="apple-touch-icon" href="img/favicon.jpeg">
+
+		<meta charset="UTF-8">
+                <meta name="description" content="Interrupt 2018 Official Website">
+                <meta name="keywords" content="interrupt,2018,2k18,svce,symposium,event,tech">
+                <meta name="author" content="SVCE Interrupt Web Team 2018">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<body>
+		<pre><span id="title"> <!-- The title itself. -->
+  _______                                   _   
+ |__   __|                                 | |  
+    | |_ __ __ _ _ __  ___ _ __   ___  _ __| |_ 
+    | | '__/ _` | '_ \/ __| '_ \ / _ \| '__| __|
+    | | | | (_| | | | \__ \ |_) | (_) | |  | |_ 
+    |_|_|  \__,_|_| |_|___/ .__/ \___/|_|   \__|
+                          | |                   
+                          |_|                   
+		</span></pre>
+		
+	   	<span id="bus"> <!-- The title itself. -->
+		                            __
+		   .-----------------------'  |
+		  /| _ .---. .---. .---. .---.|
+		  |j||||___| |___| |___| |___||
+		  |=|||=======================|
+		  [_|j||(O)\__________|(O)\___]
+	   
+		</span><br><br>
+			<p class="intro-text">You can check the transport schedule <a href="https://svce.ac.in/departments/transport/routes.php">here</a>.</p>
+		
+		<p class="intro-text intro-body" id="intro-about"></p> <!-- The typing effect is done here -->
+
+		<a href="http://interrupt2k18.in/" class="home-links blue white">Go to Home &crarr;</a> 
+		<a href="http://interrupt2k18.in/cmd/" class="home-links blue second-link">Go To Interrupt Command Prompt &crarr;</a> <!-- The buttons on the home page. -->
+		<a href="http://interrupt2k18.in/login/" class="home-links red second-link">Login &crarr;</a>
+		
+
+	</body>
+	<script>
+		var colorNum=1;
+		window.setInterval(colorChange, 1000); //This function calls the colorChange() function every 1 second.
+
+		function colorChange(){
+			if(colorNum==1){
+				document.getElementById("title").style.color="purple";
+				colorNum=2;
+			}
+			else if(colorNum==2){
+				document.getElementById("title").style.color="blue";
+				colorNum=3;
+			}
+			else if(colorNum==3){
+				document.getElementById("title").style.color="green";
+				colorNum=4;
+			}
+			else if(colorNum==4){
+				document.getElementById("title").style.color="yellow";
+				colorNum=5;
+			}
+			else if(colorNum==5){
+				document.getElementById("title").style.color="orange";
+				colorNum=6;
+			}
+			else if(colorNum==6){
+				document.getElementById("title").style.color="red";
+				colorNum=1;
+			}
+		} //This
+
+	
+
+</html>

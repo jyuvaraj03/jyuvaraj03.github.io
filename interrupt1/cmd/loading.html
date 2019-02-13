@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<title>Interrupt '18 | Home</title>
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+		<link href="css/loading-css.css" rel="stylesheet">
+		<link rel="icon" href="../img/favicon.jpeg">
+		<link rel="apple-touch-icon" href="img/favicon.jpeg">
+
+		<meta charset="UTF-8">
+                <meta name="description" content="Interrupt 2018 Official Website">
+                <meta name="keywords" content="interrupt,2018,2k18,svce,symposium,event,tech">
+                <meta name="author" content="SVCE Interrupt Web Team 2018">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	
+	<body id="terminal">
+		
+		<p id="terminal-output"></p> <!-- Where the output is shown -->
+		
+	</body>
+	
+	<script>
+		var typeNum=0;
+		var typeChangeFunc=window.setInterval(typeChange, 200); //This function calls the typeChange() function every .5 seconds.
+		
+		//In other pages, we have used a typing effect to display words. This is done by appending individual characters of a string to a tag slowly. However, in this page, I wanted to make it fast for two reasons 1) we can't have the page load slow each time and 2) this is how it actually appears when a terminal is being booted in real life. So, instead of indi characters, we upload chunks of the string each time.
+		
+		var typeText="Welcome! <br>"+
+			"Initialising events and details..............100% <br>"+
+		"Loading images...............................100% <br>";
+		
+		var typeText2="Selecting languages and frameworks...........100% <br>"+
+			"Getting permission from faculty..............100% <br>"+
+		"Calculating OD for student volunteers........100% <br><br>";
+		
+		var typeText3="Design and Development.......................100% <br>"+
+		"Website Content and backend..................100% <br>";
+		
+		var typeText4="Testing on devices...........................100% <br>"+
+			"Testing broswer compatibility................100% <br>"+
+		"Comparing ACE & ACM..........................100% <br><br>";
+		
+		var typeText5="Transport Information........................100% <br>"+
+			"Getting volunteers for events................100% <br>"+
+		"Sponsorship progress.........................100% <br>";
+		
+		var typeText6="Readying linux-style command prompt..........100% <br>"+
+		"Initialising variables and objects...........100% <br><br>";
+		
+		var typeText7="Finding participants.........................100% <br>"+
+		"Securing food for volunteers.................No idea <br>";
+		
+		var typeText8="Readying mobile compatibility................100% <br>"+
+			"Initialising server..........................100% <br>"+
+			"Readying command prompt... <br>";
+		
+		var typeNum=0;
+		function typeChange(){
+			if(typeNum==0){
+				document.getElementById("terminal-output").innerHTML+=typeText;
+				typeNum=1;
+			}
+			else if(typeNum==1){
+				document.getElementById("terminal-output").innerHTML+=typeText2;
+				typeNum=2;
+			}
+			else if(typeNum==2){
+				document.getElementById("terminal-output").innerHTML+=typeText3;
+				typeNum=3;
+			}
+			else if(typeNum==3){
+				document.getElementById("terminal-output").innerHTML+=typeText4;
+				typeNum=4;
+			}
+			else if(typeNum==4){
+				document.getElementById("terminal-output").innerHTML+=typeText5;
+				typeNum=5;
+			}
+			else if(typeNum==5){
+				document.getElementById("terminal-output").innerHTML+=typeText6;
+				typeNum=6;
+			}
+			else if(typeNum==6){
+				document.getElementById("terminal-output").innerHTML+=typeText7;
+				typeNum=7;
+			}
+			else if(typeNum==7){
+				document.getElementById("terminal-output").innerHTML+=typeText8;
+				typeNum=8;
+			}
+			else if(typeNum==8){
+				window.location.href="../cmd/";
+				clearInterval(typeChangeFunc);
+			}
+		} //This function appends each variable shown above every time it is called.
+
+	</script>
+
+</html>

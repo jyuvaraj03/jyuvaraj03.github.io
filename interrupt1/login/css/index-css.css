@@ -1,0 +1,215 @@
+body,
+html {
+    background-color: black;
+    font-family: "Share Tech Mono", monospace;
+    color: yellow;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    width: 95%;
+    margin: 2.5% 2.4%;
+    padding-bottom: 5%;
+    border: 1px dashed white;
+}
+
+p {
+    text-align: center;
+    font-size: 150%;
+}
+
+#title {
+    width: 99%;
+    margin-left: .25%;
+    display: block;
+    margin-top: 2%;
+    font-size: 120%;
+    text-align: center;
+    white-space: pre;
+    word-wrap: normal;
+    color: red;
+}
+
+.home-links {
+    text-decoration: none;
+    color: #29B6F6;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 2%;
+    display: block;
+    text-align: center;
+    border: 1px dashed #29B6F6;
+    padding: 1% 0%;
+    font-size: 120%;
+    font-family: "Share Tech Mono", monospace;
+    cursor: pointer;
+}
+
+.home-links:hover {
+    color: yellow;
+    border: 1px dashed yellow;
+}
+
+.check{
+	width: 25%;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 1%;
+	margin-right: 1%;
+}
+
+.top {
+    margin-top: 5%;
+}
+
+.bottom {
+    margin-top: 1%;
+}
+
+.dark-red {
+    color: #E91E63;
+    border: 1px dashed #E91E63;
+}
+
+.purple {
+    color: #9C27B0;
+    border: 1px dashed #9C27B0;
+}
+
+.below {
+    margin-top: 1%;
+}
+
+
+#register-form {
+    margin-top: 2%;
+    width: 100%;
+    text-align: center;
+}
+
+.form-input {
+    margin-left: 35%;
+    margin-top: 1%;
+    display: block;
+    padding-left: 1%;
+    text-align: left;
+    background-color: transparent;
+}
+
+.form-input:hover {
+    border: 1px dashed #29b6f6;
+    color: #29b6f6;
+}
+
+.long {
+    width: 62%;
+    border: 1px dashed orange;
+    color: orange;
+}
+
+.long:hover {
+    border: 1px dashed orange;
+    color: orange;
+}
+
+.end {
+    border: 1px dashed red;
+    color: red;
+}
+
+.end:hover {
+    border: 1px dashed red;
+    color: red;
+}
+
+.submit-butt {
+    border: none;
+    background-color: black;
+    color: yellow;
+    border: 1px dashed yellow;
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+        body{
+                width: 95%;
+                border: 1px dashed white;
+                margin-left: 2.3%;
+        }
+
+        #title{
+                width: 100%;
+                color: orange;
+                font-size: 70%;
+                display: block;
+        }
+
+	p { 
+		text-align: center;
+		font-size: 100%;
+	}
+
+	#error-message{
+		margin-bottom: 0%;
+		margin-top: 12%;
+	}
+
+        .home-links{
+                width: 90%;
+                margin-left: 5%;
+		margin-bottom: 3%;
+                padding: 4% 0%;
+                font-size: 100%;
+        }
+	
+	#register-form{
+		margin-top: 5%;
+	}
+
+        .form-input{
+                width: 90%;
+                border-radius: 0px;
+                padding: 4% 0 4% 4%;
+                margin-top: 3%;
+                margin-right: 5%;
+                margin-left: 5%;
+        }
+        .form-text{
+                width: 85%;
+                margin-left: 7.5%;
+                margin-bottom: 9%;
+                font-size: 100%
+        }
+
+        .check{
+		padding-top: 4.5%;
+                padding-bottom: 4.5%;
+                width: 90%;
+                display: block;
+                margin: 3.5% 5%;
+        }
+
+
+        .submit-butt{
+                width: 90%;
+                margin-left: 5%;
+                margin-top: 3%;
+		margin-bottom: 16%;
+        }
+        .top, .bottom{
+                width: 90%;
+                margin-left: 5%;
+		display: block;
+        }
+	.bottom{
+		margin-top: 1%;
+	}
+}		
+   

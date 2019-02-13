@@ -1,0 +1,153 @@
+body, html{
+	background-color: black;
+	font-family: 'Share Tech Mono', monospace;
+	color: white;
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	width: 95%;
+	margin: 2.5% 2.4%;
+	padding-bottom: 5%;
+	border: 1px dashed white;
+}
+
+#title{
+	width: 100%;
+	display: block;
+	margin-top: 3%;
+	font-size: 125%;
+	text-align: center;
+	white-space: pre;
+	word-wrap: normal;
+	color: red;
+}
+
+#bus{
+	width: 100%;
+	display: block;
+	margin-top: 0%;
+	font-size: 125%;
+	text-align: center;
+	white-space: pre;
+	word-wrap: normal;
+	color: yellow;
+	margin-left: -6.5%;
+}
+
+.intro-text{
+	width: 100%;
+	margin: 0% 0% 7% 0%;
+	font-size: 125%;
+	text-align: center;
+}
+.intro-body{
+	width: 80%;
+	margin:0 auto 3% auto;
+}
+.intro-details{
+	margin-bottom: 0.25%;
+}
+.home-links{
+	text-decoration: none;
+	color: #29B6F6;
+	width: 30%;
+	margin: 0 auto;
+	margin-top: 3%;
+	display: block;
+	text-align: center;
+	border: 1px dashed #29B6F6;
+	padding: 1% 0%;
+	font-size: 120%;
+}
+.home-links:hover{
+	color: yellow;
+	border: 1px dashed yellow;
+}
+.blue{
+	margin-top: 1%;
+	color: #29B6F6;
+	border: 1px dashed #29B6F6;
+}
+
+.white{
+	color: white;
+	border: 1px dashed white;
+}
+.red{
+	margin-top: 1%;
+	color: red;
+	border: 1px dashed red;
+}
+
+
+/* This is for the mobile responsive */
+
+@media only screen and (max-width: 1000px) {
+
+	body{
+		width: 95%;
+		margin: 2.5% 0%;
+		margin-left: 2.4%;
+		padding-bottom: 5%;
+		border: 1px dashed white;
+	}
+
+	#title{
+		font-size: 80%;
+		margin: 7% 0%;
+	}
+
+	#bus{
+		width: 20%;
+		padding-right: 0%;
+		margin-left: -2%;
+		border: none;
+		display: block;
+		margin-top: 3%;
+		font-size: 90%;
+		text-align: center;
+		white-space: pre;
+		word-wrap: normal;
+		color: yellow;
+	}
+	.intro-text{
+		width: 100%;
+		margin: 3% 0% 2% 0%;
+		font-size: 100%;
+		text-align: center;
+	}
+	.intro-body{
+		width: 95%;
+		margin:0 auto 3% auto;
+	}
+	.intro-details{
+		margin-bottom: 0.25%;
+	}
+	.home-links{
+		width: 90%;
+		margin-top: 10%;
+		border: 1px dashed #29B6F6;
+		padding: 4% 0%;
+		font-size: 100%;
+	}
+	.second-link{
+		margin-top: 3%;
+	}
+	.home-links:hover{
+		border: 1px dashed yellow;
+	}
+	.yellow{
+		margin-top: 1%;
+		border: 1px dashed yellow;
+	}
+	.white{
+		color: white;
+		border: 1px dashed white;
+	}
+	.red{
+		color: red;
+		border: 1px dashed red;
+	}
+}

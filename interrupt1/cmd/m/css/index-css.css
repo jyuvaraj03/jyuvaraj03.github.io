@@ -1,0 +1,53 @@
+body, html{
+	background-color: black;
+	font-family: "Share Tech Mono", monospace;
+	color: white;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+body{
+	width: 95%;
+	margin: 2.5% 2.4%;
+	border: 1px dashed white;
+	display: block;
+}
+
+#terminal-output{
+	width: 95%;
+	margin: 5% 2.5%;
+	font-size: 80%;
+	white-space: pre;
+	word-wrap: initial;
+	word-break: break-all;
+}
+#terminal-input{
+	width: 0;
+	background-color: black;
+	border: none;
+}
+.ter-inp{
+	color: yellow;
+}
+.cmd-links{
+	text-decoration: none;
+	color: #B3E5FC;
+	cursor: pointer;
+	width: 47%;
+	font-size: 110%;
+	margin-left: 2.5%;
+	margin-top: .5%;
+	text-align: left;
+	display: inline-block;
+}
+.cmd-links:hover{
+	text-decoration: underline;
+}
+.underline{
+	text-decoration: none;
+	font-size: 120%;
+	color: yellow;
+}
+.contact-highlight {
+	color: #848484;
+}

@@ -1,0 +1,114 @@
+body,
+html {
+    background-color: black !important;
+    font-family: "Share Tech Mono", monospace;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 95%;
+    margin: 2.5% 2.4%;
+    border: 1px dashed white;
+}
+/* HOME, STARTX*/
+
+#title {
+    width: 100%;
+    display: block;
+    margin-top: 3%;
+    font-size: 120%;
+    text-align: center;
+    white-space: pre;
+    word-wrap: normal;
+    color: red;
+}
+
+.home-links {
+    text-decoration: none;
+    color: #29B6F6;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 3%;
+    display: block;
+    text-align: center;
+    border: 1px dashed #29B6F6;
+    padding: 1% 0%;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+.home-links:hover {
+    color: yellow;
+    border: 1px dashed yellow;
+}
+
+.red {
+    margin-top: 1%;
+    color: red;
+    border: 1px dashed red;
+}
+
+.yellow {
+    margin-top: 1%;
+    color: yellow;
+    border: 1px dashed yellow;
+}
+
+.container-fluid {
+    display: none;
+    margin: 5%;
+}
+
+.panel {
+    padding: 10px;
+    width: 30%;
+    display: none;
+    margin: 0 auto;
+    background-color: black;
+    overflow: hidden;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+
+.show {
+    display: block;
+}
+/* CARD */
+
+.card {
+    display: block;
+    border-style: dashed;
+    margin: 15px;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+    /*border-style: dashed;*/
+    height: 50%;
+}
+
+.text {
+    width: 70%;
+    display: inline-block;
+    /*border-style: dashed;*/
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.logo img {
+    vertical-align: middle;
+}

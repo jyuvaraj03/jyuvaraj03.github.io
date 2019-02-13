@@ -1,0 +1,694 @@
+<html>
+	<head>
+		<title>Interrupt '18 | Command Prompt</title>
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+		<link href="css/index-css.css" rel="stylesheet">
+		<link rel="icon" href="../img/favicon.jpeg">
+		<link rel="apple-touch-icon" href="img/favicon.jpeg">
+
+		<meta charset="UTF-8">
+                <meta name="description" content="Interrupt 2018 Official Website">
+                <meta name="keywords" content="interrupt,2018,2k18,svce,symposium,event,tech">
+                <meta name="author" content="SVCE Interrupt Web Team 2018">
+
+		<script type="text/javascript">
+			if (screen.width <= 1000) {
+				window.location = "m/";
+			}
+		</script>
+	</head>
+
+	
+	<body id="terminal">
+		
+		<p id="terminal-output"></p> <!-- This is where all the terminal output is displayed. Pure javascript. -->
+		<input type="text" name="terminal-in" id="terminal-input" autocomplete="off"> <!-- The invisible textfield -->
+
+	</body>
+	
+	<script>
+		document.getElementById("terminal-input").focus(); //We transfer focus to the terminal-textbox after page loads.
+		document.getElementById("terminal").addEventListener("click", function(){
+			document.getElementById("terminal-input").focus();
+		}); //Wherever the user clicks, the focus is on the textbox
+		
+		
+		/*========================================*/
+		/*========================================*/
+		/*========================================*/
+		/*These following script statements are for the text to be displayed when the page is loaded*/
+		//We display all these strings one by one when the page loads with a slight delay to keep up the illusion of a proper working terminal
+		
+		var typeText="<span style='color: white'>Welcome to the Interrupt Command Prompt! <br>Last login: "+Date().substring(0,24)+" on console</span> <br><br>"+
+		"<span style='color: lightgreen'><span class='underline'>CLICK</span> on the commands to know more.</span><br><br>";
+
+		var cmdlinks1="<a href='http://interrupt2k18.in/' class='cmd-links'>home</a> <br>"+
+		"<a href='http://interrupt2k18.in/register' class='cmd-links'>register</a> <br>"+
+		"<a href='http://interrupt2k18.in/transport/' class='cmd-links'>transport</a> <br>"+
+		"<span class='cmd-links' onclick='setTerminalText(2)'>contact-us</span> <br><br>"+
+		"<span class='cmd-links' onclick='setTerminalText(15)'>guidelines</span> <br>"+
+                "<a href='http://interrupt2k18.in/team/' class='cmd-links'>interrupt team 2018</a> <br>"+
+		"<span class='cmd-links' onclick='setTerminalText(16)'>easter eggs</span> <br><br>";
+		
+		
+		//The following strings will have span elems at the end. This is to provide an easy way for us to adjust the space between elements in a row. As of now, the commands (names of events) are arranged in columns of 3 and rows of 3.
+		var cmdlinks2="<span style='color: lightgreen'><span class='underline'>CLICK</span> on the event to know more!</span><br><br>"+
+		"<span class='cmd-links' onclick='setTerminalText(3)'>Logicians Code 2.0</span>"+
+		"<span class='cmd-links' onclick='setTerminalText(4)'>Pitch Perfect</span> <br>"+
+		"<span class='cmd-links' onclick='setTerminalText(5)'>Inquizitive</span>"+
+		"<span class='cmd-links' onclick='setTerminalText(6)'>Art Attack</span> <br>"+
+		"<span class='cmd-links' onclick='setTerminalText(7)'>Clash of Codes</span>"+
+		"<span class='cmd-links' onclick='setTerminalText(8)'>Terminal Of Secrets</span> <br>"+
+		"<span class='cmd-links' onclick='setTerminalText(9)'>Presentation Hub</span>"+
+		"<span class='cmd-links' onclick='setTerminalText(10)'>TechnoFair</span><br>"+
+		"<span class='cmd-links' onclick='setTerminalText(11)'>Interrupt Challenge</span>"+
+		"<span class='cmd-links' onclick='setTerminalText(12)'>Pipe The Piper</span><br>"+
+		"<span class='cmd-links' onclick='setTerminalText(13)'>Datafication</span>"+
+		"<span class='cmd-links' onclick='setTerminalText(14)'>Workshop AWS</span>"+
+		"<br><br><br>";
+		
+		var dt=Date();
+		
+		var userTerminal="<span style='color: blue;'>("+getDateTime()+") </span><span style='color:orange'>root<span style='color:yellow;''>@</span><span style='color:orange'>interrupt18</span>:~$</span> ";
+		
+		window.setTimeout(function(){
+			document.getElementById("terminal-output").innerHTML+=typeText;
+		}, 500); //We append the typeText string to the <p> tag
+		
+		window.setTimeout(function(){
+			document.getElementById("terminal-output").innerHTML+=cmdlinks1;
+		}, 750); //We append the cmdlinks1 string to the <p> tag
+		
+		window.setTimeout(function(){
+			document.getElementById("terminal-output").innerHTML+=cmdlinks2;
+		}, 1000); //We append the cmdlinks2 string to the <p> tag
+		
+		var idNum=1;
+		window.setTimeout(function(){
+			document.getElementById("terminal-output").innerHTML+=userTerminal;
+			document.getElementById("terminal-output").innerHTML+="<span class='ter-inp' id='terminal-form-input"+idNum+"'></span>";
+			document.getElementById("terminal-output").innerHTML+="<span style='width:5%;' id='cursor-blink"+idNum+"'>|</span>";
+			
+			document.getElementById("terminal-input").addEventListener("keyup", addTerminalOutput);
+			document.getElementById("terminal-input").addEventListener("keydown", autoFillInput);
+			window.setInterval(blink,500);
+		}, 1250); //We intro the 'cursor' element here. It's actually a div whose background changes color every second.
+		
+		var blinkNum=0;
+		function blink(){
+			if(blinkNum==0){
+				document.getElementById("cursor-blink"+idNum).style.backgroundColor="white";
+				document.getElementById("cursor-blink"+idNum).style.color="white";
+				blinkNum=1;
+			}
+			else{
+				document.getElementById("cursor-blink"+idNum).style.backgroundColor="black";
+				document.getElementById("cursor-blink"+idNum).style.color="black";
+				blinkNum=0;
+			}
+		} //This is the function which makes sure the cursor element 'blinks'.
+			
+		function getDateTime(){
+			var dt=Date();
+			return dt.substring(16,21);
+		}
+		
+		/*This is where the scripts for the text to be displayed on load ends.*/
+		/*========================================*/
+		/*========================================*/
+		/*========================================*/
+		
+		
+		
+		/*========================================*/
+		/*========================================*/
+		/*========================================*/
+		/*The function which analyse the input into the textfield and then mirror it into the <p> tag*/
+
+		function addTerminalOutput(e){
+			var input=document.getElementById("terminal-input").value;
+			document.getElementById("terminal-form-input"+idNum).innerHTML=input;
+			if(e.keyCode==13){ //The keyCode for the 'enter' key is 13
+				analyseInput();
+			}
+		} //This function reads the text which is in the textbox and then mirrors the text in the <span> element in the p tag.
+		
+		function analyseInput(){ //This function analyses the command given and outputs a response. It also creates new 'blink' and 'terminal-form' elem
+			var input=document.getElementById("terminal-input").value; //We get the value in the 'invisible' textfield.
+			input=input.toUpperCase(); //We make it uppercase and then cmp it with uppercase inputs to make it 'case-insensitive'.
+
+			document.getElementsByTagName("html")[0].style.overflowY="scroll"; //We change the overflow-y property to scroll because it was 'hidden' in the css. This was done because we needed to fix the bug of the scroll bar appearing erratically on the side. So, only when a command is entered do we show scroll.
+			
+			if(input=="HOME"){ //We then compare the input against different inputs. We then append the required output or do the required action.
+				window.location.href="../";     //delete the index.html out at deployment
+			}
+			else if(input=="REGISTER"){
+				window.location.href="../register/";          //delete the index.html out at deployment
+			}
+			else if(input=="LOGIN"){ 
+				window.location.href="../login/";
+			}
+			else if(input=="CONTACT-US"){ //For the contact cmd, we display a picture of a phone.
+				var outputResult="<br>   _______<br>"+
+				" /` _____ `\\;,<br>"+
+				"/__(^===^)__\\;,<br>"+
+				"  /  :::  \\   ,;<br>"+
+				" |   :::   | ,;'<br>"+
+				" '._______.'`<br><br><br>"+
+				"Contact any one of the following in-charges for queries.<br>"+
+				"Sathvik (+91 77080 26256) or Chran (+91 95001 32964)<br>"+
+				"Shravan (+91 98404 76486) or Ajay  (+91 95001 85799)<br>";
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="LS" || input=="CLEAR" || input=="HELP"){ //While displaying ls, the page will display a list of available commands. The 'ls' command, when called, clears the screen and then displays available commands. For now, the ls command and the clear commands will do the same thing. They will clear the screen and show the available commands. The help command does the same thing.
+				
+				var outputResult="";
+				
+				document.getElementById("terminal-output").innerHTML="";
+				document.getElementById("terminal-output").innerHTML+="<span id='cursor-blink"+idNum+"'></span>";
+				
+				outputResult+="<span style='color: lightgreen'><span class='underline'>CLICK</span> on the commands to know more.</span> <br><br>";
+				outputResult+=cmdlinks1+cmdlinks2;
+				
+				document.getElementById("terminal-output").innerHTML+=(outputResult);
+			}
+			else if(input=="RUN"){
+				window.location.href="";
+			}
+			else if(input=="WHOAMI"){
+				document.getElementById("terminal-output").innerHTML+="<br><br>root<br>";
+			}
+			else if(input=="COMPGEN"){
+				var drawing="<br><br>";
+				
+				var outputResult=drawing+"ls - lists all commands<br>"+
+				"help - lists all commands<br>"+
+				"compgen - lists all hidden commands<br>"+
+				"clear - clears output on screen<br>"+
+				"whoami - displays current user"+
+				"<br>";
+
+				document.getElementById("terminal-output").innerHTML+=(outputResult);
+			}
+			else if(input=="LOGICIANS CODE 2.0"){
+				var drawing="<br><br>      _---~~(~~-_.<br>"+
+			         "    _{        )   )<br>"+
+			         "  ,   ) -~~- ( ,-' )<br>"+
+			         " (  `-,_..`., )-- '_,)<br>"+
+			         "( ` _)  (  -~( -_ `,  }<br>"+
+			         "(_-  _  ~_-~~~~`,  ,' )<br>"+
+			         "  `~ -^(    __;-,((()))<br>"+
+			         "        ~~~~ {_ -_(())<br>"+
+			         "               `\  }<br>"+
+				"                 { }<br><br><br>";
+		
+				var outputResult=drawing+"Do you work well under pressure?<br>"+
+				"Can you connect the dots well, even when you're stressed?<br><br>"+
+				"Logician's Code tests your problem-solving ability by locking you up in a room with clues.<br>Your job is to find clues and use these clues to break your way out of the room!<br>All this with the clock ticking!<br><br>"+
+				"* Teams can consist of a maximum of 2 members.<br>"+
+				"* All teams which clear the written quiz will qualify to the next round.<br>"+
+				"* The team which utilises the least time to escape will be announced as the winner.<br>"+
+				"* The judges' decision is final.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Pranesh (+91 9003189927) or Sheik Ismail (+91 9445789851)<br>";
+				
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="PITCH PERFECT"){
+				var drawing="<br><br>    __<br>"+
+				"   /__\\<br>"+
+				"   \\__/<br>"+
+				"    ||<br>"+
+				"    ||<br>"+
+				"    ||<br>"+
+				"     \\__ <br>"+
+				"        \\<br><br>";
+				
+				var outputResult=drawing+"Words have power. Words ARE power.<br>"+
+				"This event is all about impressing us with your oratory skills.<br>"+
+				"Sell the product! Be the best salesperson around! <br>Promote your product in the best way possible!<br><br>"+
+				"* Teams should consist of 2 members.<br>"+
+				"* No vulgarity of any nature will be allowed.<br>"+
+				"* The judges' decision is final.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Fehmaan (+91 9841626469) or Mohammed Anan (+91 9884613747)<br>";
+				
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="INQUIZITIVE"){
+				var drawing="<br><br>  ..---..<br>"+
+				" /       \\<br>"+
+				"|         |<br>"+
+				":         ;<br>"+
+				" \\  \\~/  /<br>"+
+				"  `, Y ,'<br>"+
+				"   |_|_|<br>"+
+				"   |===|<br>"+
+				"   |===|<br>"+
+				"    \\_/<br><br>";
+				
+				var outputResult=drawing+"Are you well-versed in today's technological trends?<br>"+
+				"Can you find the answers to all the questions?<br>"+
+				"Quiz your way to the finale in Interrupt 2K18's very own tech quiz, Inquizitive!<br><br>"+
+				"* Teams should consist of 2 members.<br>"+
+				"* There will be a preliminary round. The top 6 teams will qualify to the finals.<br>"+
+				"* The quizmaster's decision is final.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Akash Saravanan (+91 9962754468) or Arjun Aravind (+91 8939227284)<br>";
+				
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="ART ATTACK"){
+				var drawing="<br><br>          ____<br>"+
+				"       o8%8888,<br>"+
+				"      o88%8888888.<br>"+  
+				"     8'-    -:8888b<br>"+   
+				"    8'         8888<br>"+
+				"   d8.-=. ,==-.:888b<br>"+
+				"   >8 `~` :`~' d8888<br>"+  
+				"   88         ,88888<br>"+  
+				"   88b. `-~  ':88888<br>"+ 
+				"   888b ~==~ .:88888<br>"+ 
+				"   88888o--:':::8888<br>"+      
+				"   `88888| :::' 8888b<br>"+  
+				"   8888^^'       8888b<br>"+  
+				"  d888           ,%888b.<br>"+   
+				" d88%            %%%8--'-.<br>"+  
+				"/88:.__ ,       _%-' ---  -<br>"+  
+				"    '''::===..-'   =  --.<br><br><br>";
+				
+				var outputResult=drawing+"CSS is beautiful. CSS is powerful.<br>"+
+				"Be the best artist there is.<br>"+
+				"Create the best design and take home the prize!<br>"+
+				"May the CSS be with you!<br><br>"+
+				"* This is an individual event.<br>"+
+				"* There will be a preliminary round followed by a finals.<br>"+
+				"* Final round will require participants to build their own website based on the given theme.<br>"+
+				"* Internet access will be allowed for reference.<br>"+
+				"* Copying an existing website is strictly prohibited and will lead to disqualification.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Manav (+91 9962788926) or Kaushik (+91 8939571357)<br>";
+								
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="CLASH OF CODES"){
+				var drawing="<br><br>         />_________________________________<br>"+
+				"[########[]_________________________________><br>"+
+								"         \\><br><br>";
+				
+				var outputResult=drawing+"Time's running out! Can you be the best?<br>"+
+				"With the clock ticking, there awaits a set of questions to be solved.<br>"+
+				"The questions get harder as you go. Code your way to the finish line in <br>"+
+				"INTERRUPT'S mainstream coding dhamaka!<br><br>"+
+				"* Teams can consist of upto 3 members.<br>"+
+				"* Participants have a time limit of 60 minutes.<br>"+
+				"* Points will be awarded based on your output.<br>"+
+				"* The team with the most points at the end will win.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Pravesh Agarwal (+91 9566072778) or Karthik (+91 7448632621)<br>";
+				
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="TERMINAL OF SECRETS"){
+				var drawing="<br><br>   ___________<br>"+
+			         "  |.---------.|<br>"+
+			         "  ||         ||<br>"+
+			         "  ||         ||<br>"+
+			         "  ||         ||<br>"+
+			         "  |'---------'|<br>"+
+			         "   `)__ ____('<br>"+
+			         "   [=== -- o ]--.<br>"+
+			         " __'---------'__ \\<br>"+
+			         "[::::::::::: :::] )<br>"+
+			         " `\"\"'\"\"\"\"\"'\"\"\"\"`/T\\<br>"+
+			         "                \\_/<br><br>";
+				
+ 				var outputResult=drawing+"Like gaming? Like coding? Maybe you like both?<br>"+
+ 				"Well, you're in luck because Terminal Of Secrets lets you do both!<br>"+
+				"One games while the other codes! <br><br>"+
+ 				"* Teams should consist of 2 members.<br>"+
+				"* One member is the \"gamer\" while the other is the \"coder\". No swapping.<br>"+
+				"* The judges' decision is final.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Adarsh (+91 9840876582) or Balaji (+91 9087712810)<br>";
+			
+ 				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="PRESENTATION HUB"){
+				var drawing="<br><br>   +--------------+<br>"+
+				"   |.------------.|<br>"+
+				"   ||            ||<br>"+
+				"   ||            ||<br>"+
+				"   ||            ||<br>"+
+				"   ||            ||<br>"+
+				"   |+------------+|<br>"+
+				"   +-..--------..-+<br>"+
+				"   .--------------.<br>"+
+				"  / /============\\ \\<br>"+
+				" / /==============\\ \\<br>"+
+				"/____________________\\<br>"+
+					"\\____________________/<br><br><br>";
+		
+ 				var outputResult=drawing+"Pen down your innovative ideas.<br>"+
+ 				"Explain your idea and submit your paper, if you will.<br>"+
+				"Impress our judges, bag the prize!<br><br>"+
+				"* TOPICS: IoT, Cloud Security & Privacy, Virtualization, HPC on Cloud, Honeypot,<br>"+
+				"Wireless Comm System, Bluetooth Technology, Data Management in Sensor Networks, Decentralised Networking,<br>"+
+				"Speech Signal Analysis using Signal Processing, Data Security using Neural Networks,<br>"+
+				"Big Data Analytics, MapReduce, Big Data Search & Mining, Big Data Security & Privacy.<br><br>"+
+				"* Teams of upto 3 members.<br>"+
+				"* Submissions must be in the IEEE format and must not exclude 6 pages.<br>"+
+				"* Selected participants should bring 2 hard copies of their paper and a soft copy<br>"+
+				"as a .ppt file.<br>"+
+				"* Participants get 6 minutes for presentation and 2 minutes for queries.<br>"+
+				"* The paper in .pdf or .doc format should be mailed to paper.interrupt@gmail.com.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Yogeshwar (+91 9597855459)<br>";
+		
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="TECHNOFAIR"){
+				var drawing="<br><br>             o_.-._<br>"+
+				"             |_.-._|<br>"+
+				"             |<br>"+
+				"        ^^^^^^^<br>"+
+				"^^^ ^^^ | : : | ^^^ ^^^<br>"+
+				"| |_| |_|     |_| |_| |<br>"+
+				"|                     |<br>"+
+				"|  :   :  .-.  :   :  |<br>"+
+				"|         | |         |<br>"+
+				"\"'\"''\"\"'\"\"\"''''\"'\"''\"\"'<br><br>";
+				
+ 				var outputResult=drawing+"If you're good at something, NEVER do it for free.<br>"+
+				"The SVCE ACM Student Chapter brings you a fun-filled event where you can <br>"+
+ 				"put to use all those skills you'd never thought you'd use!<br>"+
+				"Trade your points for something cool at an auction! Sound good?<br>"+
+				"Head over to Interrupt 2018's BIDDING EVENT: TechnoFair.<br>"+
+				"And don&#39;t worry if you can&#39;t code, you won&#39;t need to! It&#39;s non-technical!<br><br>"+
+				"* You will be given points at the starting of the event.<br>"+
+				"* You can use these points to enter into the mini-events. If you win these events,<br>"+
+				"  you gain even more points!<br>"+
+				"* At the end of the event, there will be an auction where you can bid for prizes.<br>"+
+				"* You can leave in-between the event to participate in other events.<br>"+
+				"* Lose your coins, lose your points.<br>"+
+				"* Organisers have the final say!.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Pranav Wadhwa (+91 7200820090) or Aravind Balakrishnan (+91 9940261858)<br>";
+				
+		
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="INTERRUPT CHALLENGE"){
+				var drawing="<br><br>  _______<br>"+
+				" /  12   \\<br>"+
+				"|    |    |<br>"+
+				"|9   |   3|<br>"+
+				"|     \\   |<br>"+
+				"|         |<br>"+
+				" \\___6___/<br><br><br>";
+				
+				var outputResult=drawing+"Our signature event this year!<br>"+
+				"Work your way through levels by solving our interesting brain-teasers.<br><br>"+
+				"Do you like riddles? If you do, we've got it covered.<br>"+
+				"Do you like challenges? Well, we've still got you covered.<br>"+
+				"Don't think, go online and start solving!<br><br>"+
+				"* This is an online event which will happen over a span of 1 and a half weeks starting from the <br>"+
+				"  20th of September to the 27th of September.<br>"+
+				"* This challenge will consist of 10+ levels, each containing hints.<br>"+
+				"* The first participant to finish the most number of levels in the least time will be<br>"+
+				"  the winner!<br>"+
+				"* The judges' decision is final.<br>"+
+				"<br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Tamizh Arasu (+91 9655807979) or Adithya (+91 9003253308)<br>";
+		
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="PIPE THE PIPER"){
+			    var drawing="<br><br>    _..--\"\"````\"\"--.._<br>"+
+			    "  .'       |\\/|       '.<br>"+
+			    " /    /`._ |  | _.'\\    \\<br>"+
+			    ";    /              \\    |<br>"+
+			    "|   /                \\   |<br>"+
+			    ";  / .-.          .-. \\  ;<br>"+
+			    " \\ |/   \\.-.  .-./   \\| /<br>"+
+			    "  '._       \\/       _.'<br>"+
+			    "     ''--..____..--''<br><br><br>";
+				
+				var outputResult=drawing+"A single event can be solved not by one, but multiple solutions.<br>"+
+				"Tackle the given problem along with fellow coders within the given time. But that's not all!<br><br>"+
+				"Coders will be scored based on how fast the challenge is completed.<br>"+
+				"You never know who could come up with a better solution first, so brace yourselves!<br><br>"+
+				"* It is an individual online event.<br>"+
+				"* The event will be open for a total of 6 hours. Participants can choose a 2-hour window in this time.<br>"+
+				"* The participant with the highest score will be declared the winner.<br>"+
+				"* Plagiarism of code will lead to instant disqualification.<br>"+
+					"<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Shravan(+91 9840476486) or Divya G (+91 7738289309) <br>";
+		
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="DATAFICATION"){
+				var drawing="<br><br>    _      _      _      _      _      _<br>"+
+				"  _( )__ _( )__ _( )__ _( )__ _( )__ _( )__ <br>"+
+				" _|     _|     _|     _|     _|     _|     _|<br>"+
+				"(_   _ (_   _ (_   _ (_   _ (_   _ (_   _ (<br>"+
+				" |__( )_|__( )_|__( )_|__( )_|__( )_|__( )_|<br>"+
+				" |_     |_     |_     |_     |_     |_     |<br>"+
+				"  _) _   _) _   _) _   _) _   _) _   _) _   _)<br>"+
+				" |__( )_|__( )_|__( )_|__( )_|__( )_|__( )_|<br><br><br>";
+				
+				var outputResult=drawing+"Can you make sense from nonsense?<br>"+
+				"Extract the data.<br>"+
+				"Analyse and predict.<br>"+
+				"Channel your inner data scientist!<br>"+
+				"More information coming soon!<br><br>"+
+				"* This is an online individual event. Participants can submit the solution only once.<br>"+
+				"* Judges decision is final.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Sathvik (+91 7708026256) or Chran (+91 9500132964)<br>";
+		
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="WORKSHOP AWS"){
+				var drawing="<br><br>      ______ ______<br>"+
+				"    _/      Y      \\_<br>"+
+				"   // ~~ ~~ | ~~ ~  \\\\<br>"+
+				"  // ~ ~ ~~ | ~~~ ~~ \\\\<br>"+
+				" //________.|.________\\\\<br>"+
+				"`----------`-'----------'<br><br>";
+				
+				var outputResult=drawing+"An exciting workshop on AWS Compute, Database and Server Management<br>"+
+				"with the modules AWS EC2, AWS DynamoDB, AWS S3 and AWS CodeBuild.<br>"+
+				"Thou shalt learn and thou shalt understand.<br><br>"+
+				"<span class=\"contact-highlight\">Contact:</span> Abishaik (+91 8939407365) or Muralee (+91 7845123400)<br>";
+		
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if (input=="ORGANISING TEAM"){
+				window.location.href = "../team/"
+			}
+			else if(input=="GUIDELINES"){
+				var drawing="<br><br>";
+				
+				var outputResult=drawing+"1. The symposium is on September 29th, 2018.<br>"+
+				"2. There is no registration fee.<br>"+
+				"3. Only college students are allowed and ID card is a must.<br>"+
+				"4. Dress Code: Boys - No T-shirts or shorts are allowed.<br>"+
+				"               Girls - Salwar with Duputta. Jeans with kurtis & stole is advisable.<br>"+
+				"5. Torn, faded jeans, body fit clothing, transparent or revealing clothing not allowed.<br>"+
+				"6. Events start at 8:30AM and end at 3:30PM.<br>"+
+				"7. SVCE buses can be used and the bus numbers/routes can be checked on the Transports page.<br>"+
+				"8. Winner of online events must be presnt in college on September 29th with valid ID proof.<br><br>";
+		
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="EASTER EGGS"){
+				var drawing="<br><br>";
+				var outputResult=drawing+"*  <span style='color: yellow;'>You can try out normal shell commands like clear, ls, help and they might just work!</span><br>"+
+				"*  <span style='color: yellow;'>For a full list of commands, enter 'compgen'.</span><br>"+
+				"*  <span style='color: yellow;'>Also, try using the tab key when typing in a command, it will autocomplete it!</span><br><br>";
+				
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="PANDA"){
+				var drawing="<br><br>    _____    _____<br>   //###\\\\  //###\\\\<br>  //#####\\\\//#####\\\\<br> ||################||<br>  \\\\### Divvzz ###//<br>    \\\\##########//<br>      \\\\######//<br>        \\\\##//<br>          \\/<br><br><br>";
+				
+				var outputResult=drawing;
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="DIVZZ"){
+				var drawing="<br><br>    _____    _____<br>   //###\\\\  //###\\\\<br>  //#####\\\\//#####\\\\<br> ||################||<br>  \\\\### Paneer ###//<br>    \\\\##########//<br>      \\\\######//<br>        \\\\##//<br>          \\/<br><br><br>";
+				
+				var outputResult=drawing;
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			else if(input=="ARAVIND"){
+				window.location.href="http://www.aravindbalakrishnan.com";
+			}
+			else{ //We've put this whole ascii art for the 'command not found' error.
+				var drawing="<br><br> _    _     ___     _    _        _       _<br>"+
+			       "|:|  |:|   /:::\\   |:|  |:|      |  |\\/| | \\ <br>"+
+			       "|:|  |:|  /:/'\\:\\  |:|  |:|      |_ |  | |_/<br>"+
+			       "|:|__|:| |:|   |:| |:|__|:|           _  ___<br>"+
+			       "|::::::| |:|   |:| |::::::|     |\\ | / \\  |<br>"+
+			       "'----|:| |:|   |:| '----|:|     | \\| \\_/  |<br>"+
+			       "     |:| |:|   |:|      |:|   _  _            _<br>"+
+			       "     |:| |:\\   |:|      |:|  |_ / \\ | | |\\ | | \\<br>"+
+			       "     |:|  \\:\\_/:/       |:|  |  \\_/ \\_/ | \\| |_/<br>"+
+			       "     |:|   \\:::/        |:|<br>"+
+			       "     '\"'    '\"'         '\"'<br><br>";
+				
+				
+				var outputResult=drawing+"-bash: "+input+": This is not a recognised command.<br>";
+				document.getElementById("terminal-output").innerHTML+=("<br>"+outputResult);
+			}
+			
+			//Every command entered requires a new cursor element and a new terminal-form element.
+			//Below, we make sure the previous cursor becomes black so that it is not seen.
+			document.getElementById("cursor-blink"+idNum).style.backgroundColor="black"; 
+			document.getElementById("cursor-blink"+idNum).style.color="black";
+			
+			//We then start to create new cursor and terminal-form elements. 
+			//We then display these newly created elements along with the user-terminal string into the <p> "terminal-output" tag.
+			idNum+=1;
+			var userTerminal1="<span style='color: blue;'>("+getDateTime()+") </span><span style='color:orange'>root<span style='color:yellow;''>@</span><span style='color:orange'>interrupt18</span>:~$</span> ";
+			document.getElementById("terminal-output").innerHTML+=("<br>"+userTerminal1+" <span class='ter-inp' id='terminal-form-input"+idNum+"'></span>");
+			document.getElementById("terminal-output").innerHTML+=("<span style='width:5%;' id='cursor-blink"+idNum+"'>|</span>");
+			document.getElementById("terminal-input").value=""; //We set the value of the invisible textfield to null.
+		}
+		
+		function setTerminalText(num){
+			//When a command is clicked, it calls this function with a particular argument. By using the argument, we then set a value into the invisible textfield. We then call the analyseInput() function which will then analyse to see what is there in the textfield and give the correct output.
+			
+			var str="";
+			
+			if(num==2){
+				str="contact-us";
+			}
+			else if(num==3){
+				str="Logicians Code 2.0";
+			}
+			else if(num==4){
+				str="Pitch Perfect";
+			}
+			else if(num==5){
+				str="Inquizitive";
+			}
+			else if(num==6){
+				str="Art Attack";
+			}
+			else if(num==7){
+				str="Clash Of Codes";
+			}
+			else if(num==8){
+				str="Terminal Of Secrets";
+			}
+			else if(num==9){
+				str="Presentation Hub";
+			}
+			else if(num==10){
+				str="TechnoFair";
+			}
+			else if(num==11){
+				str="Interrupt Challenge";
+			}
+			else if(num==12){
+				str="Pipe The Piper";
+			}
+			else if(num==13){
+				str="Datafication";
+			}
+			else if(num==14){
+				str="Workshop AWS";
+			}
+			else if(num==15){
+				str="guidelines";
+			}
+			else if(num==16){
+				str="easter eggs";
+			}
+			
+			document.getElementById("terminal-form-input"+idNum).innerHTML=str;
+			document.getElementById("terminal-input").value=str;
+			analyseInput();
+		} //This function gets the number of the command clicked and then puts it into the input and called the prev func.		
+		
+		function autoFillInput(e){
+			if(e.keyCode==9){
+				e.preventDefault()
+				var terminal_input=document.getElementById("terminal-input").value;
+				terminal_input=terminal_input.toUpperCase();
+
+				if(terminal_input[0]=='H'){
+					document.getElementById("terminal-input").value="home";
+                    document.getElementById("terminal-form-input"+idNum).innerHTML="home";
+				}
+				else if(terminal_input[0]=='R'){
+					document.getElementById("terminal-input").value="register";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="register";
+				}
+				else if(terminal_input.substring(0,5)=='LOGIC'){
+					document.getElementById("terminal-input").value="Logicians Code 2.0";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Logicians Code 2.0";
+                }
+				else if(terminal_input.substring(0,2)=='CO'){
+					document.getElementById("terminal-input").value="contact-us";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="contact-us";
+                }
+				
+				else if(terminal_input[0]=="D"){
+					document.getElementById("terminal-input").value="Datafication";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Datafication";
+				}
+				else if(terminal_input[0]=="A"){
+					document.getElementById("terminal-input").value="Art Attack";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Art Attack";
+				}
+				else if(terminal_input[0]=="W"){
+					document.getElementById("terminal-input").value="Workshop AWS";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Workshop AWS";
+				}
+				else if(terminal_input[0]=="G"){
+					document.getElementById("terminal-input").value="guidelines";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="guidelines";
+				}
+				else if(terminal_input.substring(0,3)=="INQ"){
+					document.getElementById("terminal-input").value="Inquizitive";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Inquizitive";
+				}
+				else if(terminal_input.substring(0,3)=="INT"){
+					document.getElementById("terminal-input").value="Interrupt Challenge";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Interrupt Challenge";
+				}
+				else if(terminal_input.substring(0,2)=="CL"){
+					document.getElementById("terminal-input").value="Clash Of Codes";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Clash Of Codes";
+				}
+				else if(terminal_input.substring(0,2)=="PR"){
+					document.getElementById("terminal-input").value="Presentation Hub";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Presentation Hub";
+				}
+				else if(terminal_input.substring(0,3)=="PIT"){
+					document.getElementById("terminal-input").value="Pitch Perfect";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Pitch Perfect";
+				}
+				else if(terminal_input.substring(0,3)=="PIP"){
+					document.getElementById("terminal-input").value="Pipe The Piper";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Pipe The Piper";
+				}
+				else if(terminal_input.substring(0,3)=="TEC"){
+					document.getElementById("terminal-input").value="TechnoFair";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="TechnoFair";
+				}
+				else if(terminal_input.substring(0,3)=="TER"){
+					document.getElementById("terminal-input").value="Terminal Of Secrets";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Terminal Of Secrets";
+				}
+				else if(terminal_input.substring(0,3)=="TR"){
+					document.getElementById("terminal-input").value="Transport";
+					document.getElementById("terminal-form-input"+idNum).innerHTML="Transport";
+				}
+
+				window.setTimeout(function(){
+					document.getElementById("terminal-input").focus();
+				},10);
+			}
+		}
+
+		/*========================================*/
+		/*========================================*/
+		
+	</script>
+
+</html>

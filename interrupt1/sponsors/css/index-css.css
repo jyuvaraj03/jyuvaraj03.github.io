@@ -1,0 +1,126 @@
+body, html{
+	background-color: black;
+	font-family: "Share Tech Mono", monospace;
+	color: white;
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	width: 95%;
+	margin: 2.5% 2.4%;
+	border: 1px dashed white;
+	padding-bottom: 2.5%;
+	text-align: center;
+}
+
+#sponsor-text{
+	text-align: center;
+	width: 75%;
+	display: block;
+	margin: 5% auto 5% auto;
+	font-size: 125%;
+	color: yellow;
+}
+.sponsor-link{
+	text-decoration: none;
+}
+.sponsor-logo{
+	width: 15%;
+	border-radius: 1000px;
+	margin: 2% 3%;
+	display: inline-block;
+}
+
+.home-links{
+	text-decoration: none;
+	color: #29B6F6;
+	width: 30%;
+	margin: 0 auto;
+	margin-top: 1%;
+	display: block;
+	text-align: center;
+	border: 1px dashed #29B6F6;
+	padding: 1% 0%;
+	font-size: 120%;
+}
+.home-links:hover{
+	color: yellow;
+	border: 1px dashed yellow;
+}
+
+.white{
+	color: white;
+	border: 1px dashed white;
+}
+.red{
+	color: red;
+	border: 1px dashed red;
+}
+
+@media only screen and (max-width: 1000px) {
+
+	body{
+		width: 95%;
+		margin: 2.5% 0%;
+		margin-left: 2.3%;
+		padding-bottom: 5%;
+		border: none;
+		border: 1px dashed white;
+	}
+
+	#title{
+		font-size: 160%;
+		margin: 7% 0%;
+	}
+
+	#sponsor-text{
+		width: 80%;
+		margin-left: 10%;
+		margin-top: 12%;
+		margin-bottom: 12%;
+		display: block;
+		font-size: 105%;
+	}
+	.sponsor-link{
+		width: 100%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+		display: block;
+		text-align: center;
+	}
+	.sponsor-logo{
+		width: 50%;
+	}
+
+	.intro-body{
+		width: 95%;
+		margin:0 auto 3% auto;
+	}
+	.intro-details{
+		margin-bottom: 0.25%;
+	}
+	.home-links{
+		width: 90%;
+		margin-top: 8%;
+		border: 1px dashed #29B6F6;
+		padding: 4% 0%;
+		font-size: 100%;
+	}
+	.home-links:hover{
+		border: 1px dashed yellow;
+	}
+	.second-link{
+		margin-top: 3%;
+	}
+
+	.white{
+		color: white;
+		border: 1px dashed white;
+	}
+	.red{
+		margin-top: 3%;
+		color: red;
+		border: 1px dashed red;
+	}
+}

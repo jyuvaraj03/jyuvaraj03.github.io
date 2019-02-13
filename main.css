@@ -2,55 +2,46 @@ html, body {
   width: 100%;
   height: 100%;
   margin: 0px;
-  padding: 0px;
-}
+  padding: 0px; }
 
 html {
-  overflow: visible;
-}
+  overflow: visible; }
 
 body {
   overflow-x: hidden;
-  font-family: "Cabin", sans-serif;
-}
+  font-family: 'Cabin', sans-serif; }
 
 .section {
   padding: 50px;
   background: #ff7a66;
-  font-size: 38px;
-}
+  font-size: 38px; }
 
 .section-title {
   color: #333;
-  font-family: "Patua One", cursive;
-}
+  font-family: 'Patua One', cursive; }
 
 .section-text {
   color: white;
-  font-family: "Cabin", sans-serif;
-  line-height: 1.5em;
-}
+  font-family: 'Cabin', sans-serif;
+  line-height: 1.5em; }
 
 .name {
   padding-top: 5px !important;
   padding-bottom: 0 !important;
-  font-size: 36px !important;
-}
+  font-size: 36px !important; }
 
 #navbar {
-  font-family: "Patrick Hand", cursive;
+  font-family: 'Patrick Hand', cursive;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background: #fff;
   z-index: 1000;
-  border-bottom: 1px solid black;
-}
+  border-bottom: 1px solid black; }
 
 #nav-list {
-  display: flex;
-}
+  display: flex; }
 
 #nav-list.responsive {
   top: 54px;
@@ -59,25 +50,21 @@ body {
   text-align: right;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.7s, top 0.3s;
-  z-index: 100;
-}
+  transition: opacity .7s, top .3s;
+  z-index: 100; }
 
 .icon {
-  display: none;
-}
+  display: none; }
 
 #intro {
-  background: #8010e0;
-}
+  background: #8010e0; }
+
 #contact-desc {
-  background: #5cd183;
-}
+  background: #5cd183; }
 
 #contact {
-  font-family: "Exo 2", sans-serif;
-  text-align: center;
-}
+  font-family: 'Exo 2', sans-serif;
+  text-align: center; }
 
 .overlay {
   position: absolute;
@@ -90,78 +77,74 @@ body {
   opacity: 0;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.5s;
+  transition: opacity .5s;
   z-index: 5;
   color: white;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .overlay:hover {
-  opacity: 1;
-}
+  opacity: 1; }
 
 .wrap {
   display: flex;
   margin: 0 auto;
-  justify-content: space-around;
-}
-.wrap a {
-  padding: 20px 10px;
-  font-size: 1.25em;
-  text-decoration: none;
-  color: black;
-}
-.wrap a:not(.name):hover {
-  text-decoration: underline;
-}
+  justify-content: space-around; }
+  .wrap a {
+    padding: 20px 10px;
+    font-size: 1.25em;
+    text-decoration: none;
+    color: black; }
+  .wrap a:not(.name):hover {
+    text-decoration: underline; }
 
 .wrap a:first-child {
-  margin-right: auto;
-}
+  margin-right: auto; }
 
 .potrait {
   max-width: 100%;
-  padding: 50px;
-}
+  padding: 50px; }
 
 .contact-bitmojis {
   padding: 50px;
   max-width: 300px;
-  padding-bottom: 0;
-}
+  padding-bottom: 0; }
 
 .contact-bitmoji-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .contact-title {
   margin-top: 30px;
   margin-bottom: 10px;
   color: #09357a;
   font-family: "Cabin", sans-serif;
-  font-weight: bold;
-}
-.contact-title a {
-  text-decoration: none;
-  color: inherit;
-}
+  font-weight: bold; }
+  .contact-title a {
+    text-decoration: none;
+    color: inherit; }
 
 .contact-caption {
-  margin-top: 5px;
-}
+  margin-top: 5px; }
 
 #work .container-fluid {
-  max-width: 1140px;
-}
+  max-width: 1140px; }
+
+#footer {
+  margin-top: 45px; }
+  #footer .container {
+    padding: 50px;
+    border-top: 1px solid black; }
+    #footer .container #info {
+      max-width: 250px; }
+      #footer .container #info .sub-info {
+        color: #777; }
 
 #body-overlay {
   position: fixed;
   background: #000;
   opacity: 0;
-  transition: opacity 0.4s;
-}
+  transition: opacity 0.4s; }
 
 #body-overlay.responsive {
   width: 100%;
@@ -169,23 +152,18 @@ body {
   z-index: 1;
   opacity: 0.7;
   transition: opacity 0.4s;
-  top: 0;
-}
+  top: 0; }
 
 .overlay {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 @media screen and (max-width: 768px) {
   .section {
     padding: 50px 0;
-    font-size: 30px;
-  }
-}
+    font-size: 30px; } }
 @media screen and (max-width: 531px) {
   .section {
-    font-size: 24px;
-  }
+    font-size: 24px; }
 
   #nav-list {
     padding-top: 10px;
@@ -193,21 +171,17 @@ body {
     flex-direction: column;
     position: absolute;
     top: -500px;
-    transition: opacity 0.2s, top 0.5s;
+    transition: opacity .2s, top .5s;
     opacity: 0;
     background: #fff;
-    width: 100%;
-  }
-  #nav-list a.nav-link {
-    font-weight: 100;
-    color: #333;
-    margin: 0 auto;
-    padding: 10px;
-  }
+    width: 100%; }
+    #nav-list a.nav-link {
+      font-weight: 100;
+      color: #333;
+      margin: 0 auto;
+      padding: 10px; }
 
   .icon {
-    display: block;
-  }
-}
+    display: block; } }
 
 /*# sourceMappingURL=main.css.map */

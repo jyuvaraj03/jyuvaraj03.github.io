@@ -162,6 +162,24 @@ body {
   max-width: 1140px;
 }
 
+#footer {
+  margin-top: 45px;
+  // margin-bottom: 60px;
+  .container {
+    padding: 50px;
+    border-top: 1px solid black;
+    
+    #info {
+      max-width: 250px;
+
+      .sub-info {
+        color: #777;
+      }
+
+    }
+  }
+}
+
 #body-overlay {
   position: fixed;
   background: #000;
